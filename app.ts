@@ -1,9 +1,10 @@
 import express from 'express'
+import 'dotenv/config'
 import routes from './routes/index'
 import swaggerDocs from './utils/swagger'
 
 const app = express()
-const port = 3000
+const port = Number(process.env.PORT) || 3000
 
 app.use(express.json())
 
