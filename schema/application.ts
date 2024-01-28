@@ -1,6 +1,13 @@
+/* Application sequelize schema */
+
 import type { Sequelize } from 'sequelize'
 import { DataTypes } from 'sequelize'
+import { schemas } from '@schema'
 
+/**
+ * The function creates application schema.
+ * @param sequelizeInstance
+ */
 async function createApplicationSchema (sequelizeInstance: Sequelize) {
     const ApplicationSchema = sequelizeInstance.define(
         'application', {
@@ -12,6 +19,8 @@ async function createApplicationSchema (sequelizeInstance: Sequelize) {
             }
         }
     )
+
+    schemas.set('application', ApplicationSchema)
 
     try {
         ApplicationSchema.sync({ alter: true })

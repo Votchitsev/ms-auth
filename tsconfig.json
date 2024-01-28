@@ -17,6 +17,14 @@
     "skipLibCheck": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
+    /* Aliases */
+    "baseUrl": "./",
+    "paths": {
+      "@schema": ["schema"],
+      "@utils": ["utils"],
+      "@controller": ["controller"],
+    }
   }
 }

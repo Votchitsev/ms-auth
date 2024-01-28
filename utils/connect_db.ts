@@ -1,6 +1,8 @@
 import { Sequelize } from 'sequelize'
 import createApplicationSchema from '../schema/application'
 
+export const schemas = new Map()
+
 async function connectDb () {
     const sequelize = new Sequelize(
         process.env.DB_NAME || 'postgres',
@@ -16,7 +18,8 @@ async function connectDb () {
     try {
         await sequelize.authenticate()
         console.log('Connection has been established successfully.')
-        await createApplicationSchema(sequelize)
+        const ApplicationSchema = await createApplicationSchema(sequelize)
+        schemas.set('application', ApplicationSchema)
     } catch (error) {
         console.error('Unable to connect to the database:', error)
     }
