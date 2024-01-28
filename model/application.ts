@@ -2,13 +2,13 @@
 
 import type { Sequelize } from 'sequelize'
 import { DataTypes } from 'sequelize'
-import { schemas } from '@schema'
+import { models } from '@model'
 
 /**
  * The function creates application schema.
  * @param sequelizeInstance
  */
-async function createApplicationSchema (sequelizeInstance: Sequelize) {
+async function createApplicationModel (sequelizeInstance: Sequelize) {
     const ApplicationSchema = sequelizeInstance.define(
         'application', {
             name: {
@@ -20,7 +20,7 @@ async function createApplicationSchema (sequelizeInstance: Sequelize) {
         }
     )
 
-    schemas.set('application', ApplicationSchema)
+    models.set('application', ApplicationSchema)
 
     try {
         ApplicationSchema.sync({ alter: true })
@@ -30,4 +30,4 @@ async function createApplicationSchema (sequelizeInstance: Sequelize) {
     }
 }
 
-export default createApplicationSchema
+export default createApplicationModel

@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize'
-import createApplicationSchema from '../schema/application'
+import { createApplicationModel, createUserModel } from '@model'
 
 export const schemas = new Map()
 
@@ -18,8 +18,8 @@ async function connectDb () {
     try {
         await sequelize.authenticate()
         console.log('Connection has been established successfully.')
-        const ApplicationSchema = await createApplicationSchema(sequelize)
-        schemas.set('application', ApplicationSchema)
+        await createApplicationModel(sequelize)
+        await createUserModel(sequelize)
     } catch (error) {
         console.error('Unable to connect to the database:', error)
     }

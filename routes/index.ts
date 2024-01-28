@@ -1,11 +1,10 @@
 import type { Express } from 'express'
 import applicationRouter from './application'
+import userRouter from './user'
 
 function routes (app: Express) {
-    // app.use('/sign_in')
-    // app.use('/sign_up')
-    // app.use('/logout')
     app.use('/application', applicationRouter)
+    app.use('/user', userRouter)
 }
 
 export default routes

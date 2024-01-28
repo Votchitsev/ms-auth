@@ -1,8 +1,8 @@
-import { schemas } from '@schema'
+import { models } from '@model'
 import { generateToken } from '@utils'
 
 export const createApplicationHandler = async (name: string) => {
-    const ApplicationSchema = schemas.get('application')
+    const ApplicationSchema = models.get('application')
     const token = generateToken(16)
     const application = await ApplicationSchema.create({ name, token })
 
@@ -10,7 +10,7 @@ export const createApplicationHandler = async (name: string) => {
 }
 
 export const deleteApplicationHandler = async (token: string) => {
-    const ApplicationSchema = schemas.get('application')
+    const ApplicationSchema = models.get('application')
 
     await ApplicationSchema.destroy({ where: { token } })
 }

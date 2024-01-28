@@ -22,9 +22,10 @@
     /* Aliases */
     "baseUrl": "./",
     "paths": {
-      "@schema": ["schema"],
+      "@model": ["model"],
       "@utils": ["utils"],
       "@controller": ["controller"],
+      "@service": ["service"],
     }
   }
 }

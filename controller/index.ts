@@ -6,7 +6,12 @@ import {
     deleteApplicationHandler
 } from './application'
 
+import {
+    createUserHandler
+} from './user'
+
 export {
     createApplicationHandler,
-    deleteApplicationHandler
+    deleteApplicationHandler,
+    createUserHandler
 }
