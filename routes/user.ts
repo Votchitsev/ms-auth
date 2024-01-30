@@ -27,8 +27,15 @@ const router = express.Router()
  *                          applicationToken:
  *                              type: string
  *      responses:
- *          200:
+ *          201:
  *              description: User is created
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              name:
+ *                                  type: string
  *          500:
  *              description: Application creation error
  */

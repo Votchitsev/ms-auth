@@ -29,8 +29,10 @@ const router = express.Router()
  *                      schema:
  *                          type: object
  *                          properties:
- *                              name: string
- *                              token: string
+ *                              name:
+ *                                  type: string
+ *                              token:
+ *                                  type: string
  *          500:
  *              description: Application creation error
  */
