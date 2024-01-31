@@ -7,11 +7,13 @@ import {
 } from './application'
 
 import {
-    createUserHandler
+    createUserHandler,
+    loginUserHandler
 } from './user'
 
 export {
     createApplicationHandler,
     deleteApplicationHandler,
-    createUserHandler
+    createUserHandler,
+    loginUserHandler
 }
