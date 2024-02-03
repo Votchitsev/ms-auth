@@ -4,10 +4,7 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "bun app.ts",
-    "lint": "eslint *.ts",
-    "lint:config": "eslint --print-config .",
-    "prepare": "husky install"
+    "start": "bun app.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -18,7 +15,6 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.1.1",
-    "husky": "^8.0.3",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {

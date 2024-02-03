@@ -5,7 +5,7 @@ import swaggerDocs from './utils/swagger'
 import connectDb from './utils/connect_db'
 
 const app = express()
-const port = Number(process.env.PORT) || 3000
+const port = Number(process.env.APP_PORT) || 3000
 
 app.use(express.json())
 
