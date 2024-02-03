@@ -10,7 +10,8 @@ import {
     createUserHandler,
     loginUserHandler,
     logoutUserHandler,
-    verifyUserHandler
+    verifyUserHandler,
+    deleteUserHandler
 } from './user'
 
 export {
@@ -19,5 +20,6 @@ export {
     createUserHandler,
     loginUserHandler,
     logoutUserHandler,
-    verifyUserHandler
+    verifyUserHandler,
+    deleteUserHandler
 }

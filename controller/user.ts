@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { createUser, getUser, Password, loginUser, logoutUser, verifyUser } from '@service'
+import { createUser, getUser, Password, loginUser, logoutUser, verifyUser, deleteUser } from '@service'
 
 export const createUserHandler = async (req: Request, res: Response) => {
     const { name, password, confirmPassword, applicationToken } = req.body
@@ -77,5 +77,26 @@ export const verifyUserHandler = async (req: Request, res: Response) => {
     } catch (error) {
         return res.status(500)
             .send(`User verification error: ${error}`)
+    }
+}
+
+export const deleteUserHandler = async (req: Request, res: Response) => {
+    const { applicationToken, authToken } = req.params
+
+    if (!authToken) {
+        return res.status(401)
+            .send('Unauthorized')
+    }
+
+    if (!applicationToken) {
+        return res.status(404)
+            .send('Application token not provided')
+    }
+
+    try {
+        await deleteUser(authToken, applicationToken, res)
+    } catch (error) {
+        res.status(500)
+            .send(`User deletion error: ${error}`)
     }
 }

@@ -8,6 +8,7 @@ import Password from './user/hashedPassword'
 import loginUser from './user/loginUser'
 import logoutUser from './user/logoutUser'
 import verifyUser from './user/verifyUser'
+import deleteUser from './user/deleteUser'
 
 export {
     createUser,
@@ -15,5 +16,6 @@ export {
     Password,
     loginUser,
     logoutUser,
-    verifyUser
+    verifyUser,
+    deleteUser
 }

@@ -1,8 +1,6 @@
 import { models } from '@model'
 
 async function verifyUser (authToken: string) {
-    console.log(models)
-
     const UserModel = models.get('user')
     const TokenModel = models.get('token')
 

@@ -27,10 +27,10 @@ async function connectDb () {
         const ApplicationModel = models.get('application')
 
         TokenModel.belongsTo(UserModel, { foreignKey: 'userId' })
-        UserModel.hasMany(TokenModel, { foreignKey: 'userId' })
+        UserModel.hasMany(TokenModel, { foreignKey: 'userId', onDelete: 'CASCADE' })
 
         UserModel.belongsTo(ApplicationModel, { foreignKey: 'applicationId' })
-        ApplicationModel.hasMany(UserModel, { foreignKey: 'applicationId' })
+        ApplicationModel.hasMany(UserModel, { foreignKey: 'applicationId', onDelete: 'CASCADE' })
     } catch (error) {
         console.error('Unable to connect to the database:', error)
     }

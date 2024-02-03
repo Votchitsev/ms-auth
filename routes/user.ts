@@ -1,5 +1,11 @@
 import express from 'express'
-import { createUserHandler, loginUserHandler, logoutUserHandler, verifyUserHandler } from '@controller'
+import {
+    createUserHandler,
+    loginUserHandler,
+    logoutUserHandler,
+    verifyUserHandler,
+    deleteUserHandler
+} from '@controller'
 
 const router = express.Router()
 
@@ -149,6 +155,41 @@ router.post('/logout/:applicationToken/:authToken', async (req, res) => {
  */
 router.get('/verify/:applicationToken/:authToken', (req, res) => {
     verifyUserHandler(req, res)
+})
+
+/**
+ * @openapi
+ * /user/{applicationToken}/{authToken}:
+ *  delete:
+ *   tags:
+ *    - User
+ *   summary: Delete user
+ *   description: Delete user
+ *   parameters:
+ *    - name: applicationToken
+ *      in: path
+ *      description: Application token
+ *      required: true
+ *      schema:
+ *        type: string
+ *    - name: authToken
+ *      in: path
+ *      description: Auth token
+ *      required: true
+ *      schema:
+ *        type: string
+ *   responses:
+ *      200:
+ *        description: User is deleted
+ *      401:
+ *        description: Unauthorized
+ *      404:
+ *        description: Application not found
+ *      500:
+ *        description: User deletion error
+ */
+router.delete('/:applicationToken/:authToken', (req, res) => {
+    deleteUserHandler(req, res)
 })
 
 export default router
