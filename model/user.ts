@@ -13,7 +13,7 @@ async function createUserModel (sequelizeInstance: Sequelize) {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            application: {
+            applicationId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 references: {

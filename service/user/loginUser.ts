@@ -14,7 +14,7 @@ async function loginUser (userId: number, req: Request, res: Response) {
             },
             defaults: {
                 token: generatedToken,
-                user: userId
+                userId
             }
         })
 

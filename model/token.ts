@@ -8,8 +8,9 @@ async function createTokenModel (sequelizeInstance: Sequelize) {
             token: {
                 type: DataTypes.STRING
             },
-            user: {
+            userId: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
                 references: {
                     model: models.get('user'),
                     key: 'id'

@@ -8,12 +8,16 @@ import {
 
 import {
     createUserHandler,
-    loginUserHandler
+    loginUserHandler,
+    logoutUserHandler,
+    verifyUserHandler
 } from './user'
 
 export {
     createApplicationHandler,
     deleteApplicationHandler,
     createUserHandler,
-    loginUserHandler
+    loginUserHandler,
+    logoutUserHandler,
+    verifyUserHandler
 }

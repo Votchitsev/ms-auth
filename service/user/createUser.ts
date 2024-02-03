@@ -26,7 +26,7 @@ async function createUser (name: string, password: string, applicationToken: str
         const [user, created] = await userModel.findOrCreate({
             where: {
                 name,
-                application: application.id
+                applicationId: application.id
             },
             defaults: {
                 name,

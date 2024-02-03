@@ -1,11 +1,11 @@
 import express from 'express'
-import { createUserHandler, loginUserHandler } from '@controller'
+import { createUserHandler, loginUserHandler, logoutUserHandler, verifyUserHandler } from '@controller'
 
 const router = express.Router()
 
 /**
  * @openapi
- * /user/signup:
+ * /user/signup/:
  *   post:
  *      tags:
  *      - User
@@ -58,6 +58,8 @@ router.post('/signup', async (req, res) => {
  *                  schema:
  *                      type: object
  *                      properties:
+ *                          applicationToken:
+ *                              type: string
  *                          username:
  *                              type: string
  *                          password:
@@ -81,6 +83,72 @@ router.post('/signup', async (req, res) => {
  */
 router.post('/signin', async (req, res) => {
     loginUserHandler(req, res)
+})
+
+/**
+ * @openapi
+ * /user/logout/{applicationToken}/{authToken}:
+ *  post:
+ *      tags:
+ *          - User
+ *      summary: Logout user
+ *      description: Logout user
+ *      parameters:
+ *            - name: authToken
+ *              in: path
+ *              schema:
+ *                type: string
+ *            - name: applicationToken
+ *              in: path
+ *              schema:
+ *                type: string
+ *      responses:
+ *          200:
+ *              description: User is logged out
+ *          401:
+ *              description: Unauthorized
+ *          500:
+ *              description: User logout error
+ */
+router.post('/logout/:applicationToken/:authToken', async (req, res) => {
+    logoutUserHandler(req, res)
+})
+
+/**
+ * @openapi
+ * /user/verify/{applicationToken}/{authToken}:
+ *  get:
+ *      tags:
+ *          - User
+ *      summary: Verify user
+ *      description: Verify user
+ *      parameters:
+ *            - name: authToken
+ *              in: path
+ *              schema:
+ *                type: string
+ *            - name: applicationToken
+ *              in: path
+ *              schema:
+ *                type: string
+ *      responses:
+ *          200:
+ *              content:
+ *                   application/json:
+ *                       schema:
+ *                           type: object
+ *                           properties:
+ *                               id:
+ *                                   type: number
+ *                               user:
+ *                                   type: string
+ *          401:
+ *              description: Unauthorized
+ *          500:
+ *              description: User verification error
+ */
+router.get('/verify/:applicationToken/:authToken', (req, res) => {
+    verifyUserHandler(req, res)
 })
 
 export default router
